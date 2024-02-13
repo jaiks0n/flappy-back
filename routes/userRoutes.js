@@ -32,6 +32,6 @@ router.post(
 
 router.get('/check-status', auth, UsersController.checkStatus);
 
-router.get('/logout',UsersController.logOut )
+/*router.get('/logout',UsersController.logOut )*/
 
 module.exports = router;
