@@ -1,4 +1,4 @@
-const { addUserModel } = require('../models/usersModel');
+const { addUserModel,getAllUsersModel } = require('../models/usersModel');
 require('dotenv').config();
 
 const bcrypt = require('bcrypt');
@@ -61,4 +61,15 @@ const logOut = (req, res) => {
   }
 };
 
-module.exports = { signup, login, checkStatus, logOut };
+
+const getAllUsers = async (req, res) => {
+  try {
+    const users = await getAllUsersModel();
+    res.send(users);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send(err.message);
+  }
+};
+
+module.exports = { signup, login, checkStatus, logOut,getAllUsers };

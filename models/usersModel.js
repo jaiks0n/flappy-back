@@ -27,10 +27,18 @@ const addUserModel = async (newUser) => {
   }
 };
 
-
+const getAllUsersModel = async () => {
+  try {
+    const allUsers = await User.find();
+    return allUsers;
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 module.exports = {
   getUserByEmailModel,
   addUserModel,
-  getUserByNicknameModel
+  getUserByNicknameModel,
+  getAllUsersModel
 };
